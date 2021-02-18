@@ -1,7 +1,8 @@
 # compiled output
 /dist
-app/node_modules
-app/lib
+**/node_modules
+# TODO 思うように動いてない
+# */**/lib 
 
 # Logs
 logs

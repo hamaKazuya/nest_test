@@ -6,14 +6,16 @@ FROM node:12-alpine3.10
 # ENV NODE_ENV=development
 CMD ls
 # 雛形を生成するのに必要なパッケージのインストール
-RUN npm install -g create-nuxt-app
+## 下記が意味不明
+# RUN npm install -g create-nuxt-app
+
 RUN apk update && apk add \
     python\
     make\
     g++
 
-
 # ディレクトリを移動する
 WORKDIR /app
 
-EXPOSE 8080
+# 下記なくてもhelloworldいける。app.listenしてればいいっぽい
+# EXPOSE 8080
