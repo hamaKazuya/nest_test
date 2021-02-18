@@ -1,0 +1,28 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: main
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+      - ./log/mysql:/var/log/mysql
+  node:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./app:/app:cached
+    ports:
+      - '3001:8080'
+    env_file:
+      - ./app/.env
+    #    command: /bin/sh -c "npm install; npm run clean; npm run start:docker"
+    command: /bin/sh -c "ls -l;npm install; npm run start:docker"

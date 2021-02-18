@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "strictPropertyInitialization": false, // typeORMのEntityでエラーになるため暫定対応 https://github.com/typeorm/typeorm/issues/2797
+    "target": "es2017",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "removeComments": true,
+    "baseUrl": "./",
+    "incremental": false,
+    "esModuleInterop": true,
+    "noImplicitAny": true
+  },
+  "compileOnSave": true,
+  "include": ["src", "e2e"]
+}
