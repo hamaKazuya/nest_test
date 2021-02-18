@@ -9,6 +9,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipeService = void 0;
 const common_1 = require("@nestjs/common");
 let RecipeService = class RecipeService {
+    async save(dto) {
+        console.log('recipeSerivse: ', dto);
+    }
 };
 RecipeService = __decorate([
     common_1.Injectable()

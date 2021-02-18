@@ -1,7 +1,7 @@
 import { Recipe } from './recipe.entity';
 export declare class RecipeIngredient {
     id: number;
-    recipeId: Recipe;
+    recipe: Recipe;
     material_name: string;
     amount: number;
     unit_type: number;

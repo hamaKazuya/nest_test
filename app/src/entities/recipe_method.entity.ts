@@ -1,4 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm'
 import { Recipe } from './recipe.entity'
 
 @Entity()
@@ -6,9 +12,9 @@ export class RecipeMethod {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column('int', { name: 'recipe_id', nullable: true })
   @ManyToOne(() => Recipe, (recipe) => recipe.id)
-  recipeId: Recipe
+  @JoinColumn()
+  recipe: Recipe
 
   @Column('int')
   methodNumber: number

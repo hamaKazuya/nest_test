@@ -19,10 +19,10 @@ __decorate([
     __metadata("design:type", Number)
 ], RecipeIngredient.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column('int', { name: 'recipe_id', nullable: true }),
     typeorm_1.ManyToOne(() => recipe_entity_1.Recipe, (recipe) => recipe.id),
+    typeorm_1.JoinColumn(),
     __metadata("design:type", recipe_entity_1.Recipe)
-], RecipeIngredient.prototype, "recipeId", void 0);
+], RecipeIngredient.prototype, "recipe", void 0);
 __decorate([
     typeorm_1.Column('varchar'),
     __metadata("design:type", String)
