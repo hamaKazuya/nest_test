@@ -1,4 +1,6 @@
+import { Recipe } from 'src/entities/recipe.entity';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 export declare class RecipeService {
-    save(dto: CreateRecipeDto): Promise<void>;
+    constructor();
+    save(dto: CreateRecipeDto): Promise<Recipe | undefined>;
 }

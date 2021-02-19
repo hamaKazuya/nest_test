@@ -4,8 +4,9 @@ export declare class Recipe {
     id: number;
     name: string;
     description: string;
-    recipe_ingredients: RecipeIngredient[];
-    recipe_methods: RecipeMethod[];
+    recipe_ingredients?: RecipeIngredient[];
+    recipe_methods?: RecipeMethod[];
     createdAt: Date;
     updatedAt: Date;
+    constructor(init?: Partial<Recipe>);
 }

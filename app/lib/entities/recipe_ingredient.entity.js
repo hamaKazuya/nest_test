@@ -13,14 +13,17 @@ exports.RecipeIngredient = void 0;
 const typeorm_1 = require("typeorm");
 const recipe_entity_1 = require("./recipe.entity");
 let RecipeIngredient = class RecipeIngredient {
+    constructor(init) {
+        Object.assign(this, init);
+    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
 ], RecipeIngredient.prototype, "id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(() => recipe_entity_1.Recipe, (recipe) => recipe.id),
-    typeorm_1.JoinColumn(),
+    typeorm_1.ManyToOne(() => recipe_entity_1.Recipe, (recipe) => recipe.recipe_ingredients),
+    typeorm_1.JoinColumn([{ name: 'recipe_id' }]),
     __metadata("design:type", recipe_entity_1.Recipe)
 ], RecipeIngredient.prototype, "recipe", void 0);
 __decorate([
@@ -28,12 +31,12 @@ __decorate([
     __metadata("design:type", String)
 ], RecipeIngredient.prototype, "material_name", void 0);
 __decorate([
-    typeorm_1.Column('varchar'),
+    typeorm_1.Column('int'),
     __metadata("design:type", Number)
 ], RecipeIngredient.prototype, "amount", void 0);
 __decorate([
     typeorm_1.Column('varchar'),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], RecipeIngredient.prototype, "unit_type", void 0);
 __decorate([
     typeorm_1.Column('datetime', {
@@ -50,7 +53,8 @@ __decorate([
     __metadata("design:type", Date)
 ], RecipeIngredient.prototype, "updatedAt", void 0);
 RecipeIngredient = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity(),
+    __metadata("design:paramtypes", [Object])
 ], RecipeIngredient);
 exports.RecipeIngredient = RecipeIngredient;
 //# sourceMappingURL=recipe_ingredient.entity.js.map

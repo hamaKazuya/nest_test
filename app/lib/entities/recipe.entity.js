@@ -14,13 +14,16 @@ const typeorm_1 = require("typeorm");
 const recipe_ingredient_entity_1 = require("./recipe_ingredient.entity");
 const recipe_method_entity_1 = require("./recipe_method.entity");
 let Recipe = class Recipe {
+    constructor(init) {
+        Object.assign(this, init);
+    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
 ], Recipe.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ length: 500 }),
+    typeorm_1.Column('varchar'),
     __metadata("design:type", String)
 ], Recipe.prototype, "name", void 0);
 __decorate([
@@ -28,11 +31,13 @@ __decorate([
     __metadata("design:type", String)
 ], Recipe.prototype, "description", void 0);
 __decorate([
-    typeorm_1.OneToMany(() => recipe_ingredient_entity_1.RecipeIngredient, (RecipeIngredient) => RecipeIngredient.id),
+    typeorm_1.OneToMany(() => recipe_ingredient_entity_1.RecipeIngredient, (recipeIngredient) => recipeIngredient.recipe, { cascade: true }),
     __metadata("design:type", Array)
 ], Recipe.prototype, "recipe_ingredients", void 0);
 __decorate([
-    typeorm_1.OneToMany(() => recipe_method_entity_1.RecipeMethod, (recipeMethod) => recipeMethod.id),
+    typeorm_1.OneToMany(() => recipe_method_entity_1.RecipeMethod, (recipeMethod) => recipeMethod.recipe, {
+        cascade: true,
+    }),
     __metadata("design:type", Array)
 ], Recipe.prototype, "recipe_methods", void 0);
 __decorate([
@@ -50,7 +55,8 @@ __decorate([
     __metadata("design:type", Date)
 ], Recipe.prototype, "updatedAt", void 0);
 Recipe = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity(),
+    __metadata("design:paramtypes", [Object])
 ], Recipe);
 exports.Recipe = Recipe;
 //# sourceMappingURL=recipe.entity.js.map

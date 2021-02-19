@@ -8,8 +8,12 @@ module.exports = {
   database: process.env.DB_NAME,
   entities: ['lib/entities/**/*.entity{.ts,.js}'],
   migrations: ['lib/migrations/**/*.js'],
-  synchronize: true,
+  // synchronize: true,
   cli: {
     migrationsDir: 'src/migrations',
   },
+  extra: {
+    charset: 'utf8mb4',
+  },
+  logging: true,
 }

@@ -19,8 +19,8 @@ __decorate([
     __metadata("design:type", Number)
 ], RecipeMethod.prototype, "id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(() => recipe_entity_1.Recipe, (recipe) => recipe.id),
-    typeorm_1.JoinColumn(),
+    typeorm_1.ManyToOne(() => recipe_entity_1.Recipe, (recipe) => recipe.recipe_methods),
+    typeorm_1.JoinColumn([{ name: 'recipe_id' }]),
     __metadata("design:type", recipe_entity_1.Recipe)
 ], RecipeMethod.prototype, "recipe", void 0);
 __decorate([

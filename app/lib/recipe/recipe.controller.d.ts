@@ -3,5 +3,6 @@ import { RecipeService } from './recipe.service';
 export declare class RecipeController {
     private readonly recipeService;
     constructor(recipeService: RecipeService);
-    create(dto: CreateRecipeDto): Promise<void>;
+    create(dto: CreateRecipeDto): Promise<import("../entities/recipe.entity").Recipe | undefined>;
+    findAll(dto: CreateRecipeDto): Promise<boolean>;
 }

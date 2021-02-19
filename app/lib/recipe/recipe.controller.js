@@ -21,16 +21,27 @@ let RecipeController = class RecipeController {
         this.recipeService = recipeService;
     }
     async create(dto) {
+        console.log('controller dto:', dto);
         return await this.recipeService.save(dto);
+    }
+    async findAll(dto) {
+        return true;
     }
 };
 __decorate([
-    common_1.Post('/'),
+    common_1.Post(),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_recipe_dto_1.CreateRecipeDto]),
     __metadata("design:returntype", Promise)
 ], RecipeController.prototype, "create", null);
+__decorate([
+    common_1.Get(),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_recipe_dto_1.CreateRecipeDto]),
+    __metadata("design:returntype", Promise)
+], RecipeController.prototype, "findAll", null);
 RecipeController = __decorate([
     common_1.Controller('recipe'),
     __metadata("design:paramtypes", [recipe_service_1.RecipeService])

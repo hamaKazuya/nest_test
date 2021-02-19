@@ -12,28 +12,33 @@ export class RecipeIngredient {
   @PrimaryGeneratedColumn()
   id: number
 
-  @ManyToOne(() => Recipe, (recipe) => recipe.id)
-  @JoinColumn()
-  recipe: Recipe
+  // @Column('int', { name: 'recipe_id', nullable: true })
+  @ManyToOne(() => Recipe, (recipe) => recipe.recipe_ingredients)
+  @JoinColumn([{ name: 'recipe_id' }])
+  recipe?: Recipe
 
   @Column('varchar')
   material_name: string
 
-  @Column('varchar')
+  @Column('int')
   amount: number
 
   @Column('varchar')
-  unit_type: number // 少々とかもいれとくか・・
+  unit_type: string // 少々とかもいれとくか・・
 
   @Column('datetime', {
     name: 'created_at',
     default: () => 'CURRENT_TIMESTAMP',
   })
-  createdAt: Date
+  createdAt?: Date
 
   @Column('datetime', {
     name: 'updated_at',
     default: () => 'CURRENT_TIMESTAMP',
   })
-  updatedAt: Date
+  updatedAt?: Date
+
+  constructor(init?: Partial<RecipeIngredient>) {
+    Object.assign(this, init)
+  }
 }
