@@ -18,4 +18,4 @@ RUN apk update && apk add \
 WORKDIR /app
 
 # 下記なくてもhelloworldいける。app.listenしてればいいっぽい
-# EXPOSE 8080
+EXPOSE 8080
