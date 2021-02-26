@@ -12,8 +12,9 @@ module.exports = {
   cli: {
     migrationsDir: 'src/migrations',
   },
-  extra: {
-    charset: 'utf8mb4',
-  },
+  charset: 'utf8mb4',
+  // extra: {
+  //   charset: 'utf8mb4',
+  // },
   logging: true,
 }

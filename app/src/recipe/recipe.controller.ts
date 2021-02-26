@@ -1,4 +1,11 @@
-import { Body, Controller, Post, Get } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Post,
+  Get,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common'
 import { CreateRecipeDto } from './dto/create-recipe.dto'
 import { RecipeService } from './recipe.service'
 
@@ -13,7 +20,12 @@ export class RecipeController {
   }
 
   @Get()
-  async findAll(@Body() dto: CreateRecipeDto) {
-    return true
+  async findAll() {
+    return await this.recipeService.findAll()
+  }
+
+  @Get(':id')
+  async findById(@Param('id', ParseIntPipe) id: number) {
+    return await this.recipeService.findById(id)
   }
 }

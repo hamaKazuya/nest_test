@@ -2,7 +2,7 @@
 /dist
 **/node_modules
 # TODO 思うように動いてない
-# */**/lib 
+**/lib 
 
 # Logs
 logs
